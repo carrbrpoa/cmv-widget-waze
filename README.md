@@ -3,6 +3,8 @@ Embedded Waze widget
 Embedded Waze widget for the [Configurable Map Viewer (CMV)](https://github.com/cmv/cmv-app) app.
 Built and tested with CMV 1.3.4.
 
+Reference about Waze for developers: https://developers.google.com/waze/iframe/
+
 Use by adding the following to viewer.js config file.
 ```javascript
 embeddedWaze: {
