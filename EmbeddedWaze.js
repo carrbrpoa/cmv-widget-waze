@@ -3,11 +3,7 @@ define([
     'dojo/_base/declare',
     'dojo/_base/lang',
     'dojo/aspect',
-    'dojo/dom-construct',
-    'dojo/dom',
     'dojo/dom-attr',
-
-    'dojo/on',
 
     // mixins & base classes
     'dijit/_WidgetBase',
@@ -16,15 +12,15 @@ define([
 
     // templates & widget css
     'dojo/text!./EmbeddedWaze/templates/EmbeddedWaze.html',
-    'xstyle/css!./EmbeddedWaze/css/EmbeddedWaze.css',
     'dojo/i18n!./EmbeddedWaze/nls/resource',
     '//cdnjs.cloudflare.com/ajax/libs/proj4js/2.3.3/proj4.js',
+    'xstyle/css!./EmbeddedWaze/css/EmbeddedWaze.css',
 
     // not referenced
     'dijit/form/CheckBox'
-], function (declare, lang, aspect, domConstruct, dom, domAttr,
-    on, _WidgetBase, _TemplatedMixin, _WidgetsInTemplateMixin,
-    template, css, i18n, proj4) {
+], function (declare, lang, aspect, domAttr,
+    _WidgetBase, _TemplatedMixin, _WidgetsInTemplateMixin,
+    template, i18n, proj4) {
 
         return declare([_WidgetBase, _TemplatedMixin, _WidgetsInTemplateMixin], {
             widgetsInTemplate: true,
@@ -125,8 +121,9 @@ define([
                     return;
                 }
 
-                var newSource = `${this.wazeBaseUrl}zoom=${this.map.getLevel()}&lat=${center.y}&lon=${center.x}`;
-                domAttr.set("wazeIFrame", "src", newSource);
+                var newSource = this.wazeBaseUrl + 'zoom=' + this.map.getLevel() + '&lat=' + center.y + '&lon=' + center.x;
+                //var newSource = `${this.wazeBaseUrl}zoom=${this.map.getLevel()}&lat=${center.y}&lon=${center.x}`;
+                domAttr.set('wazeIFrame', 'src', newSource);
             },
             mapZoomed: function () {
                 // console.log('rolou o zoom: ');
