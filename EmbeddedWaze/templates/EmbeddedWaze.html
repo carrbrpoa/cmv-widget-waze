@@ -1,0 +1,13 @@
+<div class="EmbeddedWazeWidget">
+    <iframe id="wazeIFrame" src="" width="100%" height="400"></iframe>
+
+    <div style="padding: 10px;">
+        <input type="checkbox" id="chkLockMap" data-dojo-type="dijit.form.CheckBox" data-dojo-props="checked:false" data-dojo-attach-point="chkLockMap"
+            data-dojo-attach-event="onClick:toggleLockMap"/>
+        <label>${i18n.labels.lockmap}</label>
+    </div>
+
+    <div class="divInfo" style="padding: 10px;">
+        ${i18n.labels.instructions}
+    </div>
+</div>
